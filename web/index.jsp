@@ -15,11 +15,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
   </head>
-  <body>
-  <div class="container" style="background-image: url('image/image.jpg');">
-    <form action="weather" method="get">
-  <input type="text" id="place" name="place" placeholder="Enter Location" class="form-control"/>
-      <input type="submit">
+  <body style="background: url('image/image.jpg') no-repeat center center fixed; background-size: cover;">
+  <div class="container" >
+    <form action="weather" method="get" style="background: transparent; margin: 30% 0">
+      <div class="form-group row">
+        <div class="col-10">
+          <input type="text" id="place" autofocus name="place"
+                 placeholder="Enter Location" class="form-control"
+                  style="outline: none;background: transparent;border: none;
+          border-bottom: 3px solid green; color:#ffffff;"/>
+        </div>
+        <div class="col-2">
+          <button class="btn btn-success" type="submit">Submit</button>
+        </div>
+      </div>
     </form>
   </div>
 
