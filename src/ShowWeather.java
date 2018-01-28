@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -12,10 +13,11 @@ public class ShowWeather extends javax.servlet.http.HttpServlet {
 
         String place=request.getParameter("place");
 
-        URL url = new URL("https://api.openweathermap.org/data/2.5/weather?q="+place+"&appid=8e76f8c1d7aebdf0297b86950fff33da");
+
 
         try
         {
+            URL url = new URL("https://api.openweathermap.org/data/2.5/weather?q="+place+"&appid=8e76f8c1d7aebdf0297b86950fff33da");
 
             InputStream inputStream=url.openStream();
             JsonReader jsonReader=Json.createReader(inputStream);
@@ -33,6 +35,7 @@ public class ShowWeather extends javax.servlet.http.HttpServlet {
             JsonValue mintemp=jsonObject2.get("temp_min");
             JsonValue maxtemp=jsonObject2.get("temp_max");
             JsonValue pressure=jsonObject2.get("pressure");
+
             JsonValue humidity=jsonObject2.get("humidity");
             JsonObject jsonObject3=jsonObject.getJsonObject("wind");
             JsonValue wind=jsonObject3.get("speed");
@@ -48,9 +51,10 @@ public class ShowWeather extends javax.servlet.http.HttpServlet {
             inputStream.close();
 
         }
-        catch(IOException e)
+        catch(FileNotFoundException e)
         {
-         e.printStackTrace();
+
+
         }
         request.getRequestDispatcher("result.jsp").forward(request,response);
     }
